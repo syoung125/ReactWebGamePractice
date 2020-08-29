@@ -108,3 +108,12 @@ class Lec1GuGuDan extends React.Component {
 // };
 
 export default Lec1GuGuDan;
+
+/*
+ 추가적으로 리액트에서는 js 문법과 헷갈릴 수 있기 떄문에 몇몇 키워드를 다르게 쓴다.
+ class -> className
+ for -> htmlFor
+
+ ** 주의! Hook 사용 시에는 state를 쪼개서 사용 
+ -> 왜냐하면 한꺼번에 쓰면 변수 값 변경시 모든 변수값 다 바꿔함 (일부만 바꿀경우 나머지 변수가 없어짐) 
+ */
