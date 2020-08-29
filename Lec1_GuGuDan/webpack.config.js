@@ -5,16 +5,16 @@ module.exports = {
   mode: "development", // 개발자: development, 실서비스: production
   devtool: "eval", // 보통 개발자: eval, production: hidden-sourch-map
   resolve: {
-    extensions: [".jsx", ".js"],
+    extensions: [".jsx", ".js"], // entry.app에 확장자를 안써도 되게 됨
   },
   // webpack 메인: entry, moduel, output
   entry: {
-    app: "./client",
-  },
+    app: ["./client"],
+  }, // 입력
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.jsx?$/, // js파일과 jsx파일에 rule을 적용하겠다
         loader: "babel-loader", // entry에 babel-loader를 적용하는거
         options: {
           // babel-loader에 대한 option들
@@ -41,12 +41,18 @@ module.exports = {
   },
   plugins: [new webpack.LoaderOptionsPlugin({ debug: true })], // plugin: 확장프로그램
   output: {
-    path: path.join(__dirname, "dist"),
+    path: path.join(__dirname, "dist"), //__dirname: 현재 폴더 -> 현재 폴더 안의 dist
     filename: "app.js",
-  },
+  }, // 출력
 };
 
 /*
 Webpack 공식문서 확인하기 
 https://webpack.js.org/concepts/
+*/
+
+/*
+webpack이라는 명령어를 치면 여기있는 entry를 읽어서 
+app.js(output.filename)라는 한 파일르 만들어줌 
+(webpack 명령어가 안먹히면 -> npx webpack)
 */
