@@ -1,5 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
+// process.env.NODE_ENV = "production"; // 배포모드로 바꿀시 이 코드 추가, mode -> production으로
 
 module.exports = {
   mode: "development", // 개발자: development, 실서비스: production
