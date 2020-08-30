@@ -1,11 +1,9 @@
-const React = require("react");
-const ReactDom = require("react-dom");
-const { hot } = require("react-hot-loader/root");
+import React from "react";
+import ReactDom from "react-dom";
+import { hot } from "react-hot-loader/root";
 
-// const WordRelay = require("./WordRelay");
-const WordRelayH = require("./WordRelayH");
+import NumberBaseBall from "./NumberBaseBall.js";
 
-// const Hot = hot(WordRelay);
-const HotH = hot(WordRelayH);
+const Hot = hot(NumberBaseBall);
 
-ReactDom.render(<HotH />, document.querySelector("#root"));
+ReactDom.render(<Hot />, document.querySelector("#root"));

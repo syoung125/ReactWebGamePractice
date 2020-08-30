@@ -9,7 +9,7 @@ module.exports = {
   },
 
   entry: {
-    app: ["./client"], // 이 client 에서 WordRelay.js를 불러오기 때문에 써줄 필요 x
+    app: "./client",
   },
 
   module: {
