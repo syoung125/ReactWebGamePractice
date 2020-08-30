@@ -31,12 +31,14 @@ class NumberBaseBall extends Component {
   onSubmitForm = (e) => {
     e.preventDefault();
     if (this.state.value == this.state.answer.join("")) {
-      this.setState({
-        result: "홈런",
-        tries: [
-          ...this.state.tries, // 기존 배열에
-          { try: this.state.value, result: "홈런!" }, // 새로 추가
-        ],
+      this.setState((prevState) => {
+        return {
+          result: "홈런",
+          tries: [
+            ...prevState.tries, // 기존 배열에
+            { try: this.state.value, result: "홈런!" }, // 새로 추가
+          ],
+        };
       });
       alert("게임을 다시 시작합니다!");
       this.setState({
@@ -69,15 +71,17 @@ class NumberBaseBall extends Component {
             ball += 1;
           }
         }
-        this.setState({
-          result: `${strike} 스트라이크, ${ball} 볼입니다.`,
-          tries: [
-            ...this.state.tries,
-            {
-              try: this.state.value,
-              result: `${strike} 스트라이크, ${ball} 볼입니다.`,
-            },
-          ],
+        this.setState((prevState) => {
+          return {
+            result: `${strike} 스트라이크, ${ball} 볼입니다.`,
+            tries: [
+              ...prevState.tries,
+              {
+                try: this.state.value,
+                result: `${strike} 스트라이크, ${ball} 볼입니다.`,
+              },
+            ],
+          };
         });
       }
     }
@@ -129,7 +133,4 @@ export default NumberBaseBall;
  *
  * 따라서 옛날 배열을 복사해서 새로운 배열을 만들어주는 방식을 사용해야 한다!!
  * --------------------------------------------------
- *
- *
- *
  *  */
