@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, createRef } from "react";
 import Try from "./Try";
 
 // 숫자 4개를 겹치지 않고 랜덤하게 뽑는 함수
@@ -93,13 +93,24 @@ class NumberBaseBall extends Component {
     });
   };
 
+  inputRef = createRef();
+
+  onInputRef = (c) => {
+    this.inputRef = c;
+  };
+
   render() {
     const { result, value, answer, tries } = this.state;
     return (
       <>
         <h1>{result}</h1>
         <form onSubmit={this.onSubmitForm}>
-          <input maxLength={4} value={value} onChange={this.onChangeInput} />
+          <input
+            ref={this.onInputRef}
+            maxLength={4}
+            value={value}
+            onChange={this.onChangeInput}
+          />
           <button>입력</button>
         </form>
         <div>시도: {tries.length}</div>

@@ -42,14 +42,14 @@ class WordRelay extends Component {
     return (
       <>
         <div>{this.state.word}</div>
-        {/* <form onSubmit={this.onSubmitForm}> */}
-        <input
-          ref={this.onRefInput}
-          value={this.state.value}
-          onChange={this.onChangeInput}
-        />
-        <button onClick={this.onSubmitForm}>입력!</button>
-        {/* </form> */}
+        <form onSubmit={this.onSubmitForm}>
+          <input
+            ref={this.onRefInput}
+            value={this.state.value}
+            onChange={this.onChangeInput}
+          />
+          <button>입력!</button>
+        </form>
         <div>{this.state.result}</div>
       </>
     );
