@@ -46,6 +46,7 @@ class NumberBaseBall extends Component {
         answer: getNumbers(),
         tries: [],
       });
+      this.inputRef.current.focus();
     } else {
       const answerArray = this.state.value.split("").map((v) => parseInt(v));
       let strike = 0;
@@ -84,6 +85,7 @@ class NumberBaseBall extends Component {
           };
         });
       }
+      this.inputRef.current.focus();
     }
   };
 
@@ -93,11 +95,12 @@ class NumberBaseBall extends Component {
     });
   };
 
-  inputRef = createRef();
+  // onInputRef = (c) => {
+  //   this.inputRef = c;
+  // };
+  // 이거 대신에 createRef() 사용 -> current로 접근 가능
 
-  onInputRef = (c) => {
-    this.inputRef = c;
-  };
+  inputRef = createRef(); // 왜안돼
 
   render() {
     const { result, value, answer, tries } = this.state;
@@ -106,7 +109,7 @@ class NumberBaseBall extends Component {
         <h1>{result}</h1>
         <form onSubmit={this.onSubmitForm}>
           <input
-            ref={this.onInputRef}
+            ref={this.inputRef}
             maxLength={4}
             value={value}
             onChange={this.onChangeInput}
@@ -157,4 +160,8 @@ export default NumberBaseBall;
  * ==> PureComponent 사용해도 됨
  * state의 값이 바뀌는지 안바뀌는 지 알아서 판단
  * 한계: 배열과 같은 복잡한 구조는 적용 안 될 수도
+ * ----------------------------------------------------
+ * 주의:
+ * setstate는 render안에 사용 x
+ * props는 자식이 바꿔주면 안됨! -> state로 만들어서 바꿔야 부모에게 영향이 안미침
  *  */
