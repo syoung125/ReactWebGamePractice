@@ -47,6 +47,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, "dist"), //__dirname: 현재 폴더 -> 현재 폴더 안의 dist
     filename: "app.js",
+    publicPath: "/dist/",
   }, // 출력
 };
 

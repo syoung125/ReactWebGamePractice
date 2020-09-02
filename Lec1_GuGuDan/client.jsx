@@ -1,8 +1,11 @@
-const React = require("react");
-const ReactDOM = require("react-dom");
-const { hot } = require("react-hot-loader/root");
+import React from "react";
+import ReactDOM from "react-dom";
+import { hot } from "react-hot-loader/root";
 
-const GuGuDan = require("./GuGuDan");
-const Hot = hot(GuGuDan);
+// import GuGuDan from "./GuGuDan";
+// const Hot = hot(GuGuDan);
+
+import Gumon from "./Gumon";
+const Hot = hot(Gumon);
 
 ReactDOM.render(<Hot />, document.querySelector("#root"));
