@@ -131,6 +131,7 @@ export default RSP;
  *  -> (setState/props 바뀔때) -> shouldComponentUpdate(true) -> render -> componentDidUpdate)
  *  -> 부모가 나를 없앨 때 -> componentWillUnmount -> 소멸
  *
+ *
  * onClickBtn에 onClick = {() => this.onClickBtn("보")} 이면
  * onClickBtn = (choice) => () => {} 이렇게 바꾸고
  * onClick = {this.onClickBtn("보")} 이렇게 써도 됨
