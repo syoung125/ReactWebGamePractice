@@ -44,6 +44,22 @@ const LottoH = () => {
   }, [timeouts.current]); // 빈 배열이면 componentDidMount와 같음
   // 배열에 요소가 있으면 componentDidMount와 componentDidUpdate 둘 다 수행
 
+  // // PATTERN: componentDidUpdate 만, componentDidMount X
+  // const mounted = useRef(false);
+  // useEffect(
+  //   () => {
+  //     if (!mounted.current) {
+  //       mounted.current = true;
+  //     } else {
+  //       //ajax
+  //       //componentDidUpdate 코드
+  //     }
+  //   },
+  //   [
+  //     /** 바뀌는 값 */
+  //   ]
+  // );
+
   const runTimeouts = () => {
     // let을 사용하면 클로저 문제가 안남
     for (let i = 0; i < winNumbers.length - 1; i++) {
@@ -93,3 +109,5 @@ export default LottoH;
 // useRef: 일반 값을 기억
 // useCallback: 함수 자체를 기억
 // ** 자식 컴포넌트에 함수를 넘길 때에는 useCallback을 꼭 해줘야 함
+
+// useEffect 여러번 사용가능

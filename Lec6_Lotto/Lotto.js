@@ -57,6 +57,9 @@ class Lotto extends Component {
     if (this.state.winBalls.length === 0) {
       this.runTimeouts();
     }
+    if (prevState.winNumbers !== this.state.winNumbers) {
+      console.log("로또 숫자를 생성합니다.");
+    }
   }
 
   componentWillUnmount() {
